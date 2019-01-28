@@ -37,13 +37,13 @@ export default class App extends Component {
         console.log('left Swipe performed')
       }
        case 'right':{
-        console.log('left Swipe performed')
+        console.log('right Swipe performed')
       }
        case 'up':{
-        console.log('left Swipe performed')
+        console.log('up Swipe performed')
       }
        case 'down':{
-        console.log('left Swipe performed')
+        console.log('down Swipe performed')
       }
        default : {
        console.log('Undeteceted action')
