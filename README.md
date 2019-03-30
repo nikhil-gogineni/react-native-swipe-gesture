@@ -2,6 +2,10 @@
 
 React Native component for handling swipe gestures in up, down, left and right direction.
 
+# Why react-native-swipe-gesture?
+
+This component is purely written in jsx. No dom manupulations involved, no third party modules added and no native modules attached hence no problems with dependencies. Just download the file, copy and paste in your project and you are good go to. Cheers :)
+
 # Usage
 
 Step -1) Download the file and copy it into your project.
@@ -20,6 +24,7 @@ import React, { Component } from 'react';
 import {
   Text,
   View, 
+  StyleSheet
 } from 'react-native';
 
 import SwipeGesture from './swipe-gesture'
@@ -53,16 +58,27 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ height: '100%', width: '100%' }}>
-        <SwipeGesture gestureStyle={{ height: '100%', width: '100%', backgroundColor: 'yellow' }} 
+      <View style={styles.container}>
+        <SwipeGesture gestureStyle={styles.swipesGestureContainer} 
             onSwipePerformed={this.onSwipePerformed}>
-          <Text>This is swipe gesture</Text>
+          <Text>This is react native swipe gesture</Text>
           <Text>Used to detect the user swipes and function accordingly</Text>
         </SwipeGesture>
       </View>
     );
   }
 }
+
+const styles= StyleSheet.create({
+ container:{
+  height:'100%',
+  widht:'100%'
+ },
+ swipesGestureContainer:{
+  height:'100%',
+  width:'100%'
+ },
+})
 
 ```
 
