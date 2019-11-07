@@ -39,19 +39,23 @@ export default class App extends Component {
     
     switch(action){
       case 'left':{
-        console.log('left Swipe performed')
+        console.log('left Swipe performed');
+        break;
       }
        case 'right':{
-        console.log('right Swipe performed')
+        console.log('right Swipe performed');
+        break;
       }
        case 'up':{
-        console.log('up Swipe performed')
+        console.log('up Swipe performed');
+        break;
       }
        case 'down':{
-        console.log('down Swipe performed')
+        console.log('down Swipe performed');
+        break;
       }
        default : {
-       console.log('Undeteceted action')
+       console.log('Undeteceted action');
        }
     }
   }
@@ -83,4 +87,10 @@ const styles= StyleSheet.create({
 ```
 
 # NOTE 
-Avoid using ScollView inside the SwipeGesture Component. Have the ScrollView outside the SwipeGesture Component.
+```diff
+!Avoid using ScollView inside the SwipeGesture Component. 
+!Have the ScrollView outside the SwipeGesture Component.
+```
+
+
+
