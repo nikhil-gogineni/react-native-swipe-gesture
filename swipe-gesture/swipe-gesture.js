@@ -10,6 +10,9 @@ export default class SwipeGesture extends Component {
   componentWillMount = () => {
     this.PanResponder = PanResponder.create({
       onStartShouldSetPanResponder: (evt, gestureState) => true,
+      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+      onMoveShouldSetPanResponder: (evt, gestureState) => true,
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
       onPanResponderRelease: (evt, gestureState) => {
         let x = gestureState.dx;
         let y = gestureState.dy;
