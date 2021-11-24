@@ -1,44 +1,46 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import {
-  View,
-  Animated,
-  PanResponder
+    View,
+    Animated,
+    PanResponder
 } from 'react-native';
-
-export default class SwipeGesture extends Component {
-
-  componentWillMount = () => {
-    this.PanResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onPanResponderRelease: (evt, gestureState) => {
+const SwipeGesture = (props) => {
+  const PR =  PanResponder.create({
+    onStartShouldSetPanResponder: (evt, gestureState) => true,
+    onPanResponderRelease: (evt, gestureState) => {
         let x = gestureState.dx;
         let y = gestureState.dy;
         if (Math.abs(x) > Math.abs(y)) {
-          if (x >= 0) {
-            this.props.onSwipePerformed('right')
-          }
-          else {
-            this.props.onSwipePerformed('left')
-          }
+            if (x >= 0) {
+                props.onSwipePerformed('right')
+            }
+            else {
+                props.onSwipePerformed('left')
+            }
         }
         else {
-          if (y >= 0) {
-            this.props.onSwipePerformed('down')
-          }
-          else {
-            this.props.onSwipePerformed('up')
-          }
+            if (y >= 0) {
+                props.onSwipePerformed('down')
+            }
+            else {
+                props.onSwipePerformed('up')
+            }
         }
-      }
-    })
-  }
+    }
+})
+    // useEffect(() => {
+         
+    //     return () => {
+    //         // cleanup
+    //     }
+    // }, [])
 
-  render() {
+
     return (
-      <Animated.View {...this.PanResponder.panHandlers} style={this.props.gestureStyle}>
-        <View>{this.props.children}</View>
-      </Animated.View>
+        <Animated.View {...PR.panHandlers} style={props.gestureStyle}>
+            <View>{props.children}</View>
+        </Animated.View>
     )
-  }
-}
 
+}
+export default SwipeGesture;
